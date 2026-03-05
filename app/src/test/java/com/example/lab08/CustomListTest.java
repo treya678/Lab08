@@ -18,4 +18,20 @@ public class CustomListTest {
         // This will be red in Android Studio because the method doesn't exist
         assertEquals(1, list.countCities());
     }
+    @Test
+    public void testDeleteCity() {
+        CustomList list = new CustomList();
+        City city = new City("Regina", "SK");
+        list.addCity(city);
+
+        // Test successful deletion
+        list.deleteCity(city);
+        assertFalse(list.hasCity(city));
+
+        // Test that deleting a non-existent city throws an exception
+        // (This matches your Lab 6 logic)
+        assertThrows(IllegalArgumentException.class, () -> {
+            list.deleteCity(new City("Vancouver", "BC"));
+        });
+    }
 }
