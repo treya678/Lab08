@@ -19,7 +19,10 @@ public class CustomList {
     }
     public int countCities() {
         return cities.size();
+    }public void deleteCity(City city) {
+        if (!cities.contains(city)) {
+            throw new IllegalArgumentException("City not found in list");
+        }
+        cities.remove(city);
     }
-    // Will be implemented later using TDD (leave blank for now)
-    // public boolean hasCity(City city) { ... }
 }
